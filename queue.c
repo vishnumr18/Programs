@@ -1,4 +1,5 @@
-#include<stdio.h>
+// implimenting queue using array
+#include <stdio.h>
 #define MAX 25
 
 void insert();
@@ -6,63 +7,79 @@ void delete();
 void display();
 
 int q[MAX];
-int f=-1,r=-1;
+int f = -1, r = -1;
 
-int main(){
+int main()
+{
   int ch;
-  
-  while(1){
+
+  while (1)
+  {
     printf("1.Insert \t 2.Delete \t 3.Display \t 4.Exit\t \n");
     printf("Enter your choice: ");
-    scanf("%d",&ch);
+    scanf("%d", &ch);
 
-    switch(ch){
-      case 1: insert();
+    switch (ch)
+    {
+    case 1:
+      insert();
       break;
-      case 2: delete();
+    case 2:
+      delete ();
       break;
-      case 3: display();
+    case 3:
+      display();
       break;
-      case 4: exit(1);
+    case 4:
+      exit(1);
       break;
-      default:printf("Entered choice is invalid\n");
+    default:
+      printf("Entered choice is invalid\n");
     }
   }
-  
 }
-void insert(){
+void insert()
+{
   int e;
-  if(r==MAX-1){
+  if (r == MAX - 1)
+  {
     printf("The Queue Overflow \n");
   }
-  else{
-    if(f==-1)
-      f=0;
+  else
+  {
+    if (f == -1)
+      f = 0;
     printf("Enter the element: ");
-    scanf("%d",&e);
-    r=r+1;
-    q[r]= e;  
+    scanf("%d", &e);
+    r = r + 1;
+    q[r] = e;
   }
 }
-void delete(){
-  if(f==-1 || f>r){
+void delete()
+{
+  if (f == -1 || f > r)
+  {
     printf("Queue underflow \n");
     return;
   }
-  else{
-    printf("The element deleted is: %d",q[f]);
+  else
+  {
+    printf("The element deleted is: %d", q[f]);
     f++;
   }
 }
-void display(){
-  if(f==-1){
+void display()
+{
+  if (f == -1)
+  {
     printf("Queue underflow\n");
   }
-  else{
+  else
+  {
     printf("The Queue is: \n");
-    for(int i=f;i<=r;i++){
-      printf("%d ",q[i]);
+    for (int i = f; i <= r; i++)
+    {
+      printf("%d ", q[i]);
     }
   }
 }
-

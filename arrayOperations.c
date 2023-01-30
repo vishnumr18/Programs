@@ -1,3 +1,4 @@
+// Inserting the elements and Deleting the elements in an array using switch case
 #include <stdio.h>
 int main()
 {

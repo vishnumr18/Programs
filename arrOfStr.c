@@ -1,4 +1,4 @@
-// implementing strucure using arrays
+// Implementing Structure using Array
 #include <stdio.h>
 struct student
 {

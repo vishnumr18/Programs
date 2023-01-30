@@ -1,4 +1,4 @@
-// Linear Search
+// Linear Search in array
 #include <stdio.h>
 int main()
 {
