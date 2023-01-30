@@ -1,3 +1,4 @@
+// Implimentation of queue using Singly linked list
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -44,9 +45,9 @@ NODE insert_rear(NODE first)
 {
   NODE cur, x;
   int itm;
+  x = (NODE)malloc(sizeof(struct node));
   printf("Enter the item: ");
   scanf("%d", &itm);
-  x = (NODE)malloc(sizeof(struct node));
   x->info = itm;
   x->link = NULL;
   if (first == NULL)
@@ -59,7 +60,7 @@ NODE insert_rear(NODE first)
     cur = cur->link;
   }
   cur->link = x;
-  return x;
+  return first;
 }
 
 // Function for deleting the elements at front
@@ -72,7 +73,7 @@ NODE delete_front(NODE first)
   }
   temp = first;
   temp = temp->link;
-  printf("Element deleted is:%d", first->info);
+  printf("Element deleted is:%d \n", first->info);
   free(first);
   return temp;
 }
@@ -84,12 +85,13 @@ void display(NODE first)
   if (first == NULL)
   {
     printf("The list is empty\n");
+    return;
   }
-  printf("The content of the list are");
+  printf("The content of the list are ");
   temp = first;
-  while (temp->link != NULL)
+  while (temp != NULL)
   {
-    printf("%d", temp->info);
+    printf("%d ", temp->info);
     temp = temp->link;
   }
   printf("\n");
