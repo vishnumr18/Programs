@@ -1,3 +1,4 @@
+// inserting an element at any given position using arrays
 #include<stdio.h>
 
 int arrayInsertion(int lnt, int a[],int in,int loc){
