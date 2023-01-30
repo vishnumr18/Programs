@@ -15,7 +15,8 @@ void main(){
   NODE first;
   first=NULL;
   while(1){
-    printf("1.Insert Rear \t 2.Delete Rear \t 3.Display \t 4.EXIT");
+    printf("1.Insert Rear \t 2.Delete Rear \n");
+    printf("3.Display \t 4.EXIT \n");
     scanf("%d",&ch);
     switch(ch){
       case 1:first= insert_rear(first);
@@ -45,6 +46,7 @@ NODE insert_rear(NODE first){
   while (cur->link != NULL){
     cur=cur->link;                        // if there are more than one element then, we travrce the link and add the new node at the end
   }
+  cur->link=x;
   return first;
 }
 
@@ -55,7 +57,7 @@ NODE delete_rear(NODE first){
     printf("The list is empty!!!");        // if there are no elemenet in the list
   }
   if(first->link ==NULL){
-    printf("The element deleted is %d",first->info); // when there is only one element in the list 
+    printf("The element deleted is %d ",first->info); // when there is only one element in the list 
     free(first);
     return  NULL;
   }
@@ -65,7 +67,7 @@ NODE delete_rear(NODE first){
     prev=cur;                             // used to treverse the linked list using "cur" and keeping track of the previous node using "prev"
     cur=cur->link;
   }
-  printf("Element deleted is %d",cur->info);
+  printf("Element deleted is %d ",cur->info);
   free(cur);
   prev->link=NULL;
   return first;
@@ -78,10 +80,10 @@ void display(NODE first){
     printf("The list is empty!!!");       // if there are no element
     return;
   }
-  printf("The content of the list are \n");
+  printf("The content of the list are: ");
   temp= first;
-  while(temp!= NULL){
-    printf("%d",temp->info);              // for traversing and printing the elements
+  while(temp != NULL){
+    printf("%d ",temp->info);              // for traversing and printing the elements
     temp=temp->link;                      // to get the link of next element 
   }
   printf("\n");
