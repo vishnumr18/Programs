@@ -22,7 +22,7 @@ int main()
   int ch, loc;
   while (1)
   {
-    printf("\n1.Crate a node\t2.Insert at position\n3.Delete at positon\t 4.Display\n");
+    printf("1.Crate a node\t2.Insert at position\n3.Delete at positon\t 4.Display\n");
     printf("5.Exit\nEnter your choice: ");
     scanf("%d", &ch);
 
@@ -110,40 +110,9 @@ NODE insertAtPosition(NODE first, int pos)
 NODE deleteAtPosition(NODE first, int pos)
 {
   NODE cur, prev;
-  int n = 0;
+  int n;
   cur = first;
-  if (first == NULL)
-  {
-    printf("The list is empty\n");
-  }
-
-  // deleting the element at the front
-  if (pos == 1)
-  {
-    cur = first->link;
-    printf(" The element deleted is % d\n ", first->info);
-    free(first);
-    return cur;
-  }
-  // -----------------
-  prev = NULL;
-  while (cur->link != NULL)
-  {
-    prev = cur;
-    cur = cur->link;
-    n++;
-  }
-  if (n + 1 == pos)
-  {
-    printf("The element deleted is % d\n ", cur->info);
-    prev->link = NULL;
-    free(cur);
-    return first;
-  }
-
-  // ------------------
-  // deleting elements in between the list items
-  while (cur->link == NULL || n < pos - 1)
+  while (cur->link != NULL || n < pos - 1)
   {
     prev = cur;
     cur = cur->link;
